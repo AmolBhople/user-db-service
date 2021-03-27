@@ -1,0 +1,15 @@
+CREATE TABLE USERS (
+  ID SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  dept TEXT NOT NULL,
+  salary REAL DEFAULT NULL,
+  created_time TIMESTAMP NULL
+);
+
+CREATE TABLE COMPANY(
+   ID  SERIAL PRIMARY KEY,
+   NAME           TEXT      NOT NULL,
+   AGE            INT       NOT NULL,
+   ADDRESS        CHAR(50),
+   SALARY         REAL
+);

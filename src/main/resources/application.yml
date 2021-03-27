@@ -1,0 +1,83 @@
+server:
+  port: 8002
+spring:
+  profiles:
+    - dev
+  application:
+    name: user-db-service
+
+  security:
+#    user:
+#      password: P@ssword1@
+#      name: user
+#      roles:
+#        - USER, ENDPOINT_ADMIN
+    basic:
+      enabled: false
+    management:
+      security:
+        enabled: false
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/colors
+    username: postgres
+    password: angryBird1@
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+      pool-name: HikariPoolZZZ
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  devtools:
+    add-properties: false
+
+logging:
+  file:
+    name: E://springbootLogs//user-db-service.log
+#  level:
+#    - DEBUG
+
+management:
+  endpoints:
+    web:
+#      base-path: /devops/actuator
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: false
+    health:
+      show-details: always
+  metrics:
+    web:
+      server:
+        request:
+          autotime:
+            enabled: true
+info:
+  team:
+    name: INFO TEXT
+    dev: Amol Bhople
+    verison: 1.0.0
+    project:
+      owner: Amol Bhople
+
+
+
+
+---
+#TEST properties................................
+server:
+  port: 9002
+spring:
+  profiles:
+    - test
+  application:
+    name: user-db-service
+  cloud:
+    config:
+      uri: http://localhost:9999
